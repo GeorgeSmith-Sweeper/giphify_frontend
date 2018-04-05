@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchGreeting } from '../../modules/greeting';
 
-
 const Home = props => (
   <div>
     <h1>Home</h1>
