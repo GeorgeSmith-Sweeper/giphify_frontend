@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchGreeting,
-  changePage: () => push('/about-us')
+  changePage: () => push('/about')
 }, dispatch);
 
 export default connect(
