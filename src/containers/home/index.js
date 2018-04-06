@@ -11,17 +11,17 @@ const Home = props => (
     <p>
       <button onClick={props.fetchGreeting}>Say Hello</button>
     </p>
-    <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
+    <p><button onClick={() => props.changePage()}>Go to about page</button></p>
   </div>
 );
 
 const mapStateToProps = state => ({
-  greeting: state.greeting.greeting
+  greeting: state.reducer.greeting
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchGreeting,
-  changePage: () => push('/about-us')
+  changePage: () => push('/about')
 }, dispatch);
 
 export default connect(

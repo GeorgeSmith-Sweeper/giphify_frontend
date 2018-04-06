@@ -1,33 +1,35 @@
-export const FETCH_GREETING = 'counter/FETCH_GREETING';
+export const FETCH_GREETING = 'FETCH_GREETING';
 
 const initialState = {
   greeting: ''
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_GREETING:
-      return {
-        ...state,
-        greeting: 'HELLO WORLD'
-      };
+      return { ...state, greeting: action.greeting.phrase };
     default:
       return state;
   }
 };
 
-export const fetchGreeting = (greeting) => {
-  return dispatch => {
-    dispatch({
-      type: FETCH_GREETING,
-      greeting    
-    });
-  };
+const handleErrors = (response) => {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
 };
-// export const fetchGreetings = () => (dispatch) => {
-//   fetch(`/api/greetings`)
-//     .then((greetings) => {
-//       dispatch()
-//     })
-// }
-export default reducer;
+
+export const setGreeting = greeting => ({
+  type: FETCH_GREETING,
+  greeting
+});
+
+export const fetchGreeting = () => (dispatch) => {
+  fetch('api/greetings')
+    .then(handleErrors)
+    .then(res => res.json())
+    .then((greeting) => {
+      dispatch(setGreeting(greeting.data[0]));
+    });
+};
