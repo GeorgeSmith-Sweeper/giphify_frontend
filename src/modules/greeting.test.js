@@ -1,13 +1,4 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
-import {
-  setGreeting,
-  FETCH_GREETING,
-  fetchGreeting,
-  reducer
-} from './greeting';
-
+import { setGreeting, FETCH_GREETING, reducer } from './greeting';
 
 describe('actions', () => {
   it('should create an action to set a greeting', () => {
@@ -22,8 +13,16 @@ describe('actions', () => {
 
 describe('greeting reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual({
-      greeting: ''
-    });
+    expect(reducer(undefined, {})).toEqual({ greeting: '' });
+  });
+
+  it('should handle FETCH_GREETING', () => {
+    const greeting = { phrase: 'Hello!' };
+    const action = {
+      type: FETCH_GREETING,
+      greeting
+    };
+
+    expect(reducer({ greeting: '' }, action)).toEqual({ greeting: 'Hello!' });
   });
 });

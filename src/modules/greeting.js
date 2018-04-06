@@ -1,4 +1,4 @@
-export const FETCH_GREETING = 'greeting/FETCH_GREETING';
+export const FETCH_GREETING = 'FETCH_GREETING';
 
 const initialState = {
   greeting: ''
@@ -7,10 +7,7 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_GREETING:
-      return {
-        ...state,
-        greeting: action.greeting.phrase
-      };
+      return { ...state, greeting: action.greeting.phrase };
     default:
       return state;
   }
