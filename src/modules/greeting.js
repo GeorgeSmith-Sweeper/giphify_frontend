@@ -23,7 +23,10 @@ function handleErrors(response) {
   return response;
 }
 
-export const setGreeting = greeting => ({ type: FETCH_GREETING, greeting });
+export const setGreeting = greeting => ({
+  type: FETCH_GREETING,
+  greeting
+});
 
 export const fetchGreeting = () => (dispatch) => {
   fetch('api/greetings')
