@@ -11,7 +11,7 @@ const Home = props => (
     <p>
       <button onClick={props.fetchGreeting}>Say Hello</button>
     </p>
-    <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
+    <p><button onClick={() => props.changePage()}>Go to about page</button></p>
   </div>
 );
 
