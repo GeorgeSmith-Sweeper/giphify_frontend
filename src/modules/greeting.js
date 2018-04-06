@@ -4,7 +4,7 @@ const initialState = {
   greeting: ''
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_GREETING:
       return {
@@ -16,12 +16,12 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-function handleErrors(response) {
+const handleErrors = (response) => {
   if (!response.ok) {
     throw Error(response.statusText);
   }
   return response;
-}
+};
 
 export const setGreeting = greeting => ({
   type: FETCH_GREETING,
@@ -36,5 +36,3 @@ export const fetchGreeting = () => (dispatch) => {
       dispatch(setGreeting(greeting.data[0]));
     });
 };
-
-export default reducer;

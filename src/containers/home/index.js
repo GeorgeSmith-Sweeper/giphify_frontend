@@ -16,7 +16,7 @@ const Home = props => (
 );
 
 const mapStateToProps = state => ({
-  greeting: state.greeting.greeting
+  greeting: state.reducer.greeting
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
