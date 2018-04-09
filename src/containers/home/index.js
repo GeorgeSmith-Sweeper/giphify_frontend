@@ -1,5 +1,4 @@
 import React from 'react';
-import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchGreeting } from '../../modules/greeting';
@@ -11,7 +10,6 @@ const Home = props => (
     <p>
       <button onClick={props.fetchGreeting}>Say Hello</button>
     </p>
-    <p><button onClick={() => props.changePage()}>Go to about page</button></p>
   </div>
 );
 
@@ -21,7 +19,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchGreeting,
-  changePage: () => push('/about')
 }, dispatch);
 
 export default connect(
