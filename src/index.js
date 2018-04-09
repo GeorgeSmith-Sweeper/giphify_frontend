@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store';
-import App from './containers/app';
+import App from './components/app';
 
 import './index.css';
 
-const target = document.querySelector('#root');
+const target = document.getElementById('root');
 
 render(
   <Provider store={store}>
