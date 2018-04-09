@@ -1,11 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchGreeting } from '../../actions/greeting';
+import { fetchGreeting } from '../../actions/GreetingActions';
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
+    <h1>Giphify</h1>
     <p>{props.greeting}</p>
     <p>
       <button onClick={props.fetchGreeting}>Say Hello</button>
