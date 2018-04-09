@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchGreeting } from '../../reducers/greeting';
+import { fetchGreeting } from '../../actions/greeting';
 
 const Home = props => (
   <div>
@@ -14,7 +14,7 @@ const Home = props => (
 );
 
 const mapStateToProps = state => ({
-  greeting: state.reducer.greeting
+  greeting: state.greetingReducer.greeting
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
