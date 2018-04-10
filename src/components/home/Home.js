@@ -7,6 +7,7 @@ const Home = props => (
   <div>
     <h1>Giphify</h1>
     <p>{props.greeting}</p>
+    
     <p>
       <button onClick={props.fetchGreeting}>Say Hello</button>
     </p>

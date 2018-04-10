@@ -1,14 +1,14 @@
-import { addUserInput, STORE_USERINPUT } from '../actions/UserInputActions';
+import { postUserInput, STORE_USERINPUT } from '../actions/UserInputActions';
 import reducer from '../reducers/userInput';
 
 describe('actions', () => {
-  it('should create an action to addUserInput ', () => {
+  it('should create an action to postUserInput ', () => {
     const input = 'See you later';
     const expectedAction = {
       type: STORE_USERINPUT,
       input
     };
-    expect(addUserInput(input)).toEqual(expectedAction);
+    expect(postUserInput(input)).toEqual(expectedAction);
   });
 });
 
