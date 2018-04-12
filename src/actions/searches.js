@@ -5,7 +5,7 @@ export const addSearchQuery = query => ({
   query
 });
 
-export const handleAddSearchQuery = (userData) => {
+export const handleAddSearchQuery = (query) => {
   return dispatch =>
     fetch('/api/searches', {
       method: 'post',
@@ -14,13 +14,12 @@ export const handleAddSearchQuery = (userData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: userData.query,
+        query,
       }),
     })
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
-          console.log(res);
-          dispatch(addSearchQuery(userData.query));
+          dispatch(addSearchQuery(query));
         }
       })
       .catch(error => console.log(error));
