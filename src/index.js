@@ -1,21 +1,17 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import store, { history } from './store';
-import App from './components/app';
-
+import { createStore } from 'redux';
 import './index.css';
+import App from './components/App';
+import reducer from './reducers';
+import middleware from './middleware';
 
-const target = document.getElementById('root');
+const store = createStore(reducer, middleware);
 
-render(
+ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
-    </ConnectedRouter>
+    <App />
   </Provider>,
-  target
+  document.getElementById('root')
 );

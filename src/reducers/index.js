@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import greetingReducer from './greeting';
+import searches from './searches';
 
 export default combineReducers({
-  routing: routerReducer,
-  greetingReducer
+  searches,
 });
