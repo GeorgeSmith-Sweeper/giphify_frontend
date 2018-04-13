@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { handleAddSearchQuery } from '../actions/searches';
 
 class Home extends Component {
-  state = {
-    query: ''
+  constructor() {
+    super();
+    this.state = {
+      query: ''
+    };
   }
 
   handleChange = (e) => {
@@ -16,11 +19,8 @@ class Home extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    const { query } = this.state;
     const { dispatch } = this.props
-
-    dispatch(handleAddSearchQuery(query));
+    dispatch(handleAddSearchQuery(this.state));
 
     this.setState(() => ({
       query: '',
